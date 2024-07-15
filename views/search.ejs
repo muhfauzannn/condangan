@@ -1,0 +1,38 @@
+<%- include('header.ejs') %>    
+
+
+     <div class="container-content" id="explore">
+        <% if (locals.message) { %>
+            <h1>Role not found</h1>
+
+        <% }else{ %>
+            <h1>Search</h1>
+
+        <form action="#" method="post">
+
+            <div class="flexContainer">
+
+
+                <% dataPorto.forEach(data => { %>
+                 
+                <a href="/<%= data.id %>">
+                    <div class="itemFlex">
+                        <div class="imgItem" style="background-image: url(<%=data.urlImagePorto[0].url%>)">
+                        </div>
+                        <div class="desc-item">
+                            <p><%= data.name %></p>
+                            <p><%= data.specialist %></p>
+                        </div>
+                    </div>
+                </a>
+
+                <% }) %>
+                
+            </div>
+
+        </form>
+        <% } %>
+    </div>
+
+
+<%- include('footer.ejs') %>   

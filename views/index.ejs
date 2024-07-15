@@ -1,0 +1,99 @@
+<%- include('header.ejs') %>    
+    
+    <div class="content-main">
+        <div class="changingColor">
+            <p>Creative students ready to work</p>
+        </div>
+        <h1>Most Talented Student in UPNVJ</h1>
+        <p>Build your project with the best student talent</p>
+        <div class="get-started">
+            <a href="#">Get Started</a>
+        </div>
+    </div>
+
+
+
+    <!-- SLIDER IMAGE -->
+     <div class="container-image">
+        <div class="sliderImage">
+
+            <% dataSlide.forEach(e => { %>
+
+                <div class="itemImage" style="background-image: url(<%= e.urlImage%>)">
+                    
+                    <div class="descItem">
+                        <div class="nama">
+                            <p><%= e.name %></p>
+                        </div>
+                        <div class="specialist">
+                            <p><%= e.specialist %></p>
+                        </div>
+                        <div class="skill">
+                            <% for(var i=0; i < e.skill.length; i++){ %>
+                                <div class="borderItem">
+                                    <span><%= e.skill[i] %></span>
+                                </div>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+
+        </div>
+     </div>
+     <!-- END SLIDER IMAGE -->
+
+
+     <div class="container-content" id="explore">
+        <h1>Explore Our Talent</h1>
+        <% if (locals.message) { %>
+            <h1>Data tidak ditemukan</h2>
+        <% } %>
+
+        <form action="#" method="post">
+
+            <div class="flexContainer">
+
+
+                <% dataPorto.forEach(data => { %>
+                 
+                <a href="/<%= data.id %>">
+                    <div class="itemFlex">
+                        <div class="imgItem" style="background-image: url(<%=data.urlImagePorto[0].url%>)">
+                        </div>
+                        <div class="desc-item">
+                            <p><%= data.name %></p>
+                            <p><%= data.specialist %></p>
+                        </div>
+                    </div>
+                </a>
+
+                <% }) %>
+                
+            </div>
+
+        </form>
+    </div>
+
+    <div class="centerContent">
+        <div class="container-about" id="aboutUs">
+            <h1>About Us</h1>
+            <div class="main-about">
+                <p>In the digital era, freelance opportunities are growing, but freelancers often struggle to find clients, and clients have trouble finding skilled workers. This gap is especially noticeable among students wanting to use their skills productively. Himpunan Mahasiswa Informatika (HMIF) UPNVJ for 2024/2025, through its Creative Economy Department, aims to address this with the CONDANGAN program. This platform connects freelancers with clients, providing a space for freelancers to promote their services and for clients to find the right talent, effectively bridging the gap between them.</p>
+            </div>
+            
+            <div class="hireUs">
+            </div>
+        </div>
+
+        <p>Interested in recruiting our talent to your project?</p>
+
+        <a href="#">
+            <div class="btnHire">
+                <p>Hire Now!</p>
+            </div>
+        </a>
+    </div>
+
+
+<%- include('footer.ejs') %>   
